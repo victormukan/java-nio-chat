@@ -57,7 +57,7 @@ public class ChatClient implements Runnable {
 
     public void stop() {
         if (thread != null) {
-            thread.stop();
+            thread.interrupt();
             thread = null;
         }
 
@@ -76,7 +76,7 @@ public class ChatClient implements Runnable {
         }
 
         client.close();
-        client.stop();
+        client.interrupt();
     }
     public static void main(String args[]) {
         ChatClient client = new ChatClient("localhost", 4000);
